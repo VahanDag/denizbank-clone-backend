@@ -1,0 +1,6 @@
+@Denizbank_HostAddress = http://localhost:5017
+
+GET {{Denizbank_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
