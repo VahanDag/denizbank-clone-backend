@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
+using System.Transactions;
+using Denizbank.Core.Enums;
 
 namespace Denizbank.DTOs
 {
@@ -29,6 +31,7 @@ namespace Denizbank.DTOs
         public string ToName { get; set; }
         public string? Description { get; set; }
         public decimal Amount { get; set; }
-
+        public Denizbank.Core.Enums.TransactionStatus Status { get; set; }
+        public TransactionType TransactionType { get; set; }
     }
 }

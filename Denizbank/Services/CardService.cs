@@ -87,9 +87,9 @@ namespace Denizbank.Services
                 CSV = CardUtilities.GenerateCsv(),
                 ExpirationDate = CardUtilities.GenerateExpirationDate(),
                 BalanceLimit = request.CardType == CardType.Credit ? 42000 : null,
-                CutOfDate = CardUtilities.GenerateCutOfDate(),
-                Debt = 0,
-                IBAN = CardUtilities.GenerateIBAN()
+                CutOfDate = request.CardType == CardType.Credit ? CardUtilities.GenerateCutOfDate() : null,
+                Debt = request.CardType == CardType.Credit ? 0 : null,
+                IBAN = request.CardType == CardType.Credit ? null : CardUtilities.GenerateIBAN()
             };
 
             _bankingDbContext.Cards.Add(newCardRecord);
